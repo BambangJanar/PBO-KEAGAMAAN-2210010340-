@@ -76,36 +76,36 @@ public class datakonsultasi {
                     System.err.println(e.getMessage());
             }
             }
-    public void cariuji(String nik){
-        try {
-            String SQL="SELECT*FROM uji WHERE nik=?";
-            PreparedStatement perintah = connectionDB.prepareStatement(SQL);
-            perintah.setString(1,nik);
-            ResultSet data= perintah.executeQuery();
-            while(data.next()){
-                System.out.println("NIK :"+data.getString("nik"));
-                System.out.println("Nama :"+data.getString("nama"));
-                System.out.println("Telp :"+data.getString("telp"));
-                System.out.println("Alamat :"+data.getString("alamat"));
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
-    
-    public void datauji(){
-        try {
-            Statement stmt = connectionDB.createStatement();
-            ResultSet baris = stmt.executeQuery("SELECT * FROM uji ORDER BY nik ASC");
-            while(baris.next()){
-                System.out.println(baris.getString("nik")+" | "+
-                        baris.getString("nama")+" | "+ 
-                        baris.getString("telp")+" | "+
-                        baris.getString("alamat"));
-            }
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
-        }
-    }
+//    public void cariuji(String nik){
+//        try {
+//            String SQL="SELECT*FROM uji WHERE nik=?";
+//            PreparedStatement perintah = connectionDB.prepareStatement(SQL);
+//            perintah.setString(1,nik);
+//            ResultSet data= perintah.executeQuery();
+//            while(data.next()){
+//                System.out.println("NIK :"+data.getString("nik"));
+//                System.out.println("Nama :"+data.getString("nama"));
+//                System.out.println("Telp :"+data.getString("telp"));
+//                System.out.println("Alamat :"+data.getString("alamat"));
+//            }
+//        } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//        }
+//    }
+//    
+//    public void datauji(){
+//        try {
+//            Statement stmt = connectionDB.createStatement();
+//            ResultSet baris = stmt.executeQuery("SELECT * FROM uji ORDER BY nik ASC");
+//            while(baris.next()){
+//                System.out.println(baris.getString("nik")+" | "+
+//                        baris.getString("nama")+" | "+ 
+//                        baris.getString("telp")+" | "+
+//                        baris.getString("alamat"));
+//            }
+//        } catch (Exception e) {
+//            System.err.println(e.getMessage());
+//        }
+//    }
     
 }
