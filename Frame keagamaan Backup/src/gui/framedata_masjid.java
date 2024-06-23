@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package gui;
+import CRUD.datamasjid;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,8 +15,11 @@ public class framedata_masjid extends javax.swing.JFrame {
     /**
      * Creates new form framedata_masjid
      */
+    private datamasjid myObject;
     public framedata_masjid() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        myObject = new datamasjid(); 
     }
 
     /**
@@ -26,21 +31,165 @@ public class framedata_masjid extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtid = new javax.swing.JTextField();
+        txtnama = new javax.swing.JTextField();
+        txtalamat = new javax.swing.JTextField();
+        txtkec = new javax.swing.JTextField();
+        txttelp = new javax.swing.JTextField();
+        cmbstatus = new javax.swing.JComboBox<>();
+        cmbmarbot = new javax.swing.JComboBox<>();
+        btnubah = new javax.swing.JButton();
+        btnsimpan = new javax.swing.JButton();
+        btnhapus = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        jLabel1.setText("ID");
+
+        jLabel2.setText("NAMA");
+
+        jLabel3.setText("ALAMAT");
+
+        jLabel4.setText("STATUS");
+
+        jLabel5.setText("KECAMATAN");
+
+        jLabel6.setText("NO TELP");
+
+        jLabel7.setText("NAMA MARBOT");
+
+        cmbstatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AKTIF", "NON AKTIF" }));
+
+        cmbmarbot.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arip", "Dono", "Yanto" }));
+
+        btnubah.setText("UBAH");
+
+        btnsimpan.setText("SIMPAN");
+        btnsimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsimpanActionPerformed(evt);
+            }
+        });
+
+        btnhapus.setText("HAPUS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(511, 511, 511)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(181, 181, 181)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jLabel3)
+                            .addGap(164, 164, 164)
+                            .addComponent(jLabel4))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(162, 162, 162)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(jLabel5)
+                            .addGap(142, 142, 142)
+                            .addComponent(jLabel6))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
+                                .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                .addComponent(cmbmarbot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtkec, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txttelp, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnhapus)
+                    .addComponent(btnubah)
+                    .addComponent(btnsimpan))
+                .addGap(410, 410, 410))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnhapus, btnsimpan, btnubah, cmbmarbot, cmbstatus, txtalamat, txtid, txtkec, txtnama, txttelp});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtnama, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(btnubah))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtalamat, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnsimpan))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(btnhapus))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtkec, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txttelp, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbmarbot, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnhapus, btnsimpan, btnubah, cmbmarbot, cmbstatus, txtalamat, txtid, txtkec, txtnama, txttelp});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimpanActionPerformed
+        try {
+            String id = txtid.getText();
+            String nama = txtnama.getText();
+            String alamat = txtalamat.getText();
+            String status = cmbstatus.getSelectedItem().toString();
+            String kecamatan = txtkec.getText();
+            int telp = Integer.valueOf(txtalamat.getText());
+            String marbot = cmbmarbot.getSelectedItem().toString();
+            myObject.simpandata_masjid(id,nama,alamat,status,kecamatan,telp,marbot);
+            
+            JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan Bhoss");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnsimpanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +227,22 @@ public class framedata_masjid extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnhapus;
+    private javax.swing.JButton btnsimpan;
+    private javax.swing.JButton btnubah;
+    private javax.swing.JComboBox<String> cmbmarbot;
+    private javax.swing.JComboBox<String> cmbstatus;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JTextField txtalamat;
+    private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtkec;
+    private javax.swing.JTextField txtnama;
+    private javax.swing.JTextField txttelp;
     // End of variables declaration//GEN-END:variables
 }
