@@ -35,7 +35,7 @@ public class datamasjid {
     public void simpandata_masjid(String id, String nama, String alamat, String status, 
             String kecamatan, int no_telp, String nama_marbot){
         try {
-            String sql = "insert into data_mesjid (id, nama,alamat,status,kecamatan,no_telp,nama_marbot)value (?,?,?,?,?,?,?)";
+            String sql = "insert into data_masjid (id, nama,alamat,status,kecamatan,no_telp,nama_marbot)value (?,?,?,?,?,?,?)";
             PreparedStatement perintah = connectionDB.prepareStatement (sql);
             perintah.setString(1, id);
             perintah.setString(2, nama);
@@ -52,7 +52,7 @@ public class datamasjid {
             System.out.println(e.getMessage());
         }
         }
-    public void ubahdata_konsultasi(String Nomor, String Konsultasi_pernikahan, String Konsultasi_hakwaris, String Konsultasi_masukislam){
+    public void ubahdata_masjid(String Nomor, String Konsultasi_pernikahan, String Konsultasi_hakwaris, String Konsultasi_masukislam){
         try{ 
             String SQL="UPDATE data_konsultasi SET Konsultasi_pernikahan =?, Konsultasi_hakwaris=?, Konsultasi_masukislam=? WHERE Nomor=?";
             
@@ -68,7 +68,7 @@ public class datamasjid {
             }
             }
             
-    public void hapusdata_konsultasi(String Nomor){
+    public void hapusdata_masjid(String Nomor){
         try {
              String SQL="DELETE FROM data_konsultasi WHERE nomor=?";
              PreparedStatement perintah = connectionDB.prepareStatement(SQL);
