@@ -52,27 +52,31 @@ public class datamasjid {
             System.out.println(e.getMessage());
         }
         }
-    public void ubahdata_masjid(String Nomor, String Konsultasi_pernikahan, String Konsultasi_hakwaris, String Konsultasi_masukislam){
+    public void ubahdata_masjid(String id, String nama, String alamat, String status, 
+            String kecamatan, int no_telp, String nama_marbot){
         try{ 
-            String SQL="UPDATE data_konsultasi SET Konsultasi_pernikahan =?, Konsultasi_hakwaris=?, Konsultasi_masukislam=? WHERE Nomor=?";
+            String SQL="UPDATE data_masjid SET nama=?,alamat=?,status=?,kecamatan=?, no_telp=?, nama_marbot=? WHERE id=?";
             
             PreparedStatement perintah = connectionDB.prepareStatement(SQL);
-            perintah.setString(1, Konsultasi_pernikahan);
-            perintah.setString(2, Konsultasi_hakwaris);
-            perintah.setString(3, Konsultasi_masukislam);
-            perintah.setString(4, Nomor);
+            perintah.setString(1, nama);
+            perintah.setString(2, alamat);
+            perintah.setString(3, status);
+            perintah.setString(4, kecamatan);
+            perintah.setInt(5, no_telp);
+            perintah.setString(6, nama_marbot);
+            perintah.setString(7, id);
             perintah.executeUpdate();
-            System.out.println("Data berhasil diubah");
+            System.out.println("Data berhasil diubah Guruu");
             } catch (Exception e){
                 System.out.println(e.getMessage());
             }
             }
             
-    public void hapusdata_masjid(String Nomor){
+    public void hapusdata_masjid(String id){
         try {
-             String SQL="DELETE FROM data_konsultasi WHERE nomor=?";
+             String SQL="DELETE FROM data_masjid WHERE id=?";
              PreparedStatement perintah = connectionDB.prepareStatement(SQL);
-             perintah.setString(1,Nomor);
+             perintah.setString(1,id);
              perintah.executeUpdate();
              System.out.println("Data berhasil dihapus");
             } catch (Exception e) {

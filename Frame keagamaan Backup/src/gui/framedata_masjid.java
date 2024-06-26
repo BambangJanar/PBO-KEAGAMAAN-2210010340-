@@ -70,6 +70,11 @@ public class framedata_masjid extends javax.swing.JFrame {
         cmbmarbot.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arip", "Dono", "Yanto" }));
 
         btnubah.setText("UBAH");
+        btnubah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnubahActionPerformed(evt);
+            }
+        });
 
         btnsimpan.setText("SIMPAN");
         btnsimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -79,13 +84,18 @@ public class framedata_masjid extends javax.swing.JFrame {
         });
 
         btnhapus.setText("HAPUS");
+        btnhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhapusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(511, 511, 511)
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -125,7 +135,7 @@ public class framedata_masjid extends javax.swing.JFrame {
                     .addComponent(btnhapus)
                     .addComponent(btnubah)
                     .addComponent(btnsimpan))
-                .addGap(410, 410, 410))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnhapus, btnsimpan, btnubah, cmbmarbot, cmbstatus, txtalamat, txtid, txtkec, txtnama, txttelp});
@@ -179,9 +189,9 @@ public class framedata_masjid extends javax.swing.JFrame {
             String alamat = txtalamat.getText();
             String status = cmbstatus.getSelectedItem().toString();
             String kecamatan = txtkec.getText();
-            int telp = Integer.valueOf(txttelp.getText());
+            int no_telp = Integer.valueOf(txttelp.getText());
             String marbot = cmbmarbot.getSelectedItem().toString();
-            myObject.simpandata_masjid(id,nama,alamat,status,kecamatan,telp,marbot);
+            myObject.simpandata_masjid(id,nama,alamat,status,kecamatan,no_telp,marbot);
             
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan Bhoss");
             
@@ -189,6 +199,41 @@ public class framedata_masjid extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnsimpanActionPerformed
+
+    private void btnubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnubahActionPerformed
+        try {
+            String id = txtid.getText();
+            String nama = txtnama.getText();
+            String alamat = txtalamat.getText();
+            String status = cmbstatus.getSelectedItem().toString();
+            String kecamatan = txtkec .getText();
+            int no_telp = Integer.valueOf(txttelp.getText());
+            String marbot = cmbmarbot.getSelectedItem().toString();
+            myObject.ubahdata_masjid(id,nama,alamat,status,kecamatan,no_telp,marbot );
+            
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah Puhh");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnubahActionPerformed
+
+    private void btnhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhapusActionPerformed
+        try {
+            myObject.hapusdata_masjid(txtid.getText());
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus Bhoss");
+            
+            txtid.setText(null);
+            txtnama.setText(null);
+            txtalamat.setText(null);
+            txttelp.setText(null);
+            txtkec.setText(null);
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnhapusActionPerformed
 
     /**
      * @param args the command line arguments
