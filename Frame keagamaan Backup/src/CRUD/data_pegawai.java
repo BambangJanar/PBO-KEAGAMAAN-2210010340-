@@ -51,4 +51,32 @@ public class data_pegawai {
         }
         }
     
+    public void ubahdata_pegawai(int NIP, String nama_pegawai, String jabatan, String alamat, String jeniskelamin){
+        try{ 
+            String SQL="UPDATE data_pegawai SET nama_pegawai=?,jabatan=?,alamat=?,jeniskelamin=?, WHERE NIP=?";
+            
+            PreparedStatement perintah = connectionDB.prepareStatement(SQL);
+            perintah.setString(1, nama_pegawai);
+            perintah.setString(2, jabatan);
+            perintah.setString(3, alamat);
+            perintah.setString(4, jeniskelamin);
+            perintah.setInt(5, NIP);
+            perintah.executeUpdate();
+            System.out.println("Data berhasil diubah Mang");
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            }
+    
+    public void hapusdata_pegawai(String nama_pegawai ){
+        try {
+             String SQL="DELETE FROM data_pegawai WHERE nama_pegawai=?";
+             PreparedStatement perintah = connectionDB.prepareStatement(SQL);
+             perintah.setString(1,nama_pegawai);
+             perintah.executeUpdate();
+             System.out.println("Data berhasil dihapus");
+            } catch (Exception e) {
+                    System.err.println(e.getMessage());
+            }
+            }
 }

@@ -159,6 +159,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="UBAH"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnubahActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnsimpan">
       <Properties>
@@ -172,6 +175,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="HAPUS"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnhapusActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="cmbjk">
       <Properties>

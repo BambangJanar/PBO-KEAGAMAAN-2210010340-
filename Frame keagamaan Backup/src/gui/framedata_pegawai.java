@@ -56,6 +56,11 @@ public class framedata_pegawai extends javax.swing.JFrame {
         jLabel4.setText("ALAMAT");
 
         btnubah.setText("UBAH");
+        btnubah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnubahActionPerformed(evt);
+            }
+        });
 
         btnsimpan.setText("SIMPAN");
         btnsimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +70,11 @@ public class framedata_pegawai extends javax.swing.JFrame {
         });
 
         btnhapus.setText("HAPUS");
+        btnhapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnhapusActionPerformed(evt);
+            }
+        });
 
         cmbjk.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pria", "Wanita", "Humanoid", "Mecha", "Kapal Lawd" }));
 
@@ -170,6 +180,37 @@ public class framedata_pegawai extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnsimpanActionPerformed
+
+    private void btnubahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnubahActionPerformed
+        try {
+            int NIP = Integer.valueOf(txtNIP.getText());
+            String nama_pegawai = txtnama.getText();
+            String jabatan = txtjabatan.getText();
+            String alamat= txtalamat.getText();
+            String jeniskelamin = cmbjk.getSelectedItem().toString();
+            myObject.ubahdata_pegawai(NIP,nama_pegawai,jabatan,alamat,jeniskelamin );
+            
+            JOptionPane.showMessageDialog(null, "Data Berhasil Diubah Puhh");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnubahActionPerformed
+
+    private void btnhapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhapusActionPerformed
+         try {
+            myObject.hapusdata_pegawai(txtnama.getText());
+            JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus Bhoss");
+            
+            
+            txtjabatan.setText(null);
+            txtalamat.setText(null);
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_btnhapusActionPerformed
 
     /**
      * @param args the command line arguments
