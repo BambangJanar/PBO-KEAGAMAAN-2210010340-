@@ -13,14 +13,14 @@ import java.sql.Statement;
  *
  * @author Aldy
  */
-public class datapegawai {
+public class data_pegawai {
     private String databasename = "2210010340";
     private String username = "root";
     private String password = "";
     public static Connection connectionDB;
     
-    
-    public datapegawai (){
+ 
+    public data_pegawai (){
         try {
             String host = "jdbc:mysql://localhost/"+databasename;
             Class.forName("com.mysql.jdbc.Driver");
@@ -32,17 +32,16 @@ public class datapegawai {
         }
             
     }
-}
-
-     public void simpandata_pegawai(int NIP, String nama_pegawai, String jabatan, String alamat, String jeniskelamin){
+    
+    public void simpandata_pegawai(int NIP, String nama_pegawai, String jabatan, String alamat, String jeniskelamin){
         try {
             String sql = "insert into data_pegawai (NIP, nama_pegawai,jabatan, alamat, jeniskelamin)value (?,?,?,?,?)";
             PreparedStatement perintah = connectionDB.prepareStatement (sql);
-            perintah.setString(1, NIP);
+            perintah.setInt(1, NIP);
             perintah.setString(2, nama_pegawai);
             perintah.setString(3, jabatan);
             perintah.setString(4, alamat);
-            perintah.setString(5, jenis_kelamin);
+            perintah.setString(5, jeniskelamin);
             
             perintah.executeUpdate();
             System.out.println("data berhasil disimpan");
@@ -51,30 +50,5 @@ public class datapegawai {
             System.out.println(e.getMessage());
         }
         }
-    public void ubahuji(String  nik, String nama, String telp, String alamat){
-        try{ 
-            String SQL="UPDATE UJI SET nama =?, telp=?, alamat=? WHERE nik=?";
-            
-            PreparedStatement perintah = connectionDB.prepareStatement(SQL);
-            perintah.setString(1, nama);
-            perintah.setString(2, telp);
-            perintah.setString(3, alamat);
-            perintah.setString(4, nik);
-            perintah.executeUpdate();
-            System.out.println("Data berhasil diubah");
-            } catch (Exception e){
-                System.out.println(e.getMessage());
-            }
-            }
-            
-    public void hapusuji(String nik){
-        try {
-             String SQL="DELETE FROM uji WHERE nik=?";
-             PreparedStatement perintah = connectionDB.prepareStatement(SQL);
-             perintah.setString(1,nik);
-             perintah.executeUpdate();
-             System.out.println("Data berhasil dihapus");
-            } catch (Exception e) {
-                    System.err.println(e.getMessage());
-            }
-            }
+    
+}
